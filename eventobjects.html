@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="paragraph">문단 태그</p>
+    <button id="btn">버튼</button>
+    <script>
+        document.getElementById("paragraph").addEventListener("click",
+            (e) => {
+                for (attr in e) {
+                    console.log(attr + ":" + e[attr])
+                }
+            });
+
+        document.getElementById("btn").addEventListener("click",
+            (e) => {
+                //문단태그의 클릭이 발생하도록 강제로 이벤트 만들기
+                document.getElementById("paragraph").click();
+            })
+    </script>
+    <!--//name은 서버가 사용할 이름 id는 client class는 css에서 사용-->
+    <!--action은 처리할 서버의 URL, Method는 요청방식-get, post-->
+    
+    <form action="loginprocessing" method="post" id="loginform">
+        <p id="msg"></p>
+        
+        <p>
+            아이디<input type="text" name="id" id="id" />
+        </p>
+        <p>
+            비밀번호<input type="password" name="pw" id="pw" />
+            비밀번호 확인<input type="password" name="pw1" id="pw1" />
+        </p>
+        <input type="submit" value="로그인" />
+
+    </form>
+   
+        <script>
+            let idinput = document.getElementById("id");
+            let pwinput = document.getElementById("pw");
+            let pw1input = document.getElementById("pw1");
+            let msg = document.getElementById("msg");
+
+
+
+            document.getElementById("loginform").addEventListener("submit",
+                (e) => {
+                    //아이디 입력란 찾아오기
+                    if (idinput.value.trim().length === 0 && pwinput.value.trim().length === 0) { //trim 공백제거 
+                        msg.innerHTML = "아이디와 비밀번호는 필수 입력입니다";
+                        msg.style.color = "red";
+                        e.preventDefault(); //기본 이벤트를 제거해서 서버게 전송하지 않도록 하기
+                        
+                    }
+                    if (idinput.value.trim().length === 0) {
+                        msg.innerHTML = "아이디는 필수 입력입니다";
+                        msg.style.color = "red";
+                        e.preventDefault(); //기본 이벤트를 제거해서 서버게 전송하지 않도록 하기
+                        
+                    }
+                    if (pwinput.value.trim().length === 0) {
+                        msg.innerHTML = "비밀번호는 필수 입력입니다";
+                        msg.style.color = "red";
+                        e.preventDefault(); //기본 이벤트를 제거해서 서버게 전송하지 않도록 하기
+                       
+                    }
+                    if (ps1.value !== ps2.vlaue) {
+                        msg.innerHTML = "비밀번호가 일치하는지 확인해주세요";
+                        msg.style.color = "red";
+                        e.preventDefault(); //기본 이벤트를 제거해서 서버게 전송하지 않도록 하기
+                        
+                    }
+                }
+            )
+              //비밀번호가 비어있으면 전송이 안되도록 작성 =>ok
+            //비밀번호의 확인란을 만들어서 비밀번호와 확인란이 맞지 않으면 전송이 안되도록 작성. 비밀번호 value만들어놓고 저장해놓음 그리고 맞는지 확인
+            //비밀번호의 패턴이 맞지 않으면 전송이 안되도록 작성// 대문자 소문자
+            //비밀 번호의 패턴을 보고 강한 비밀번호인지 판별방법
+    
+
+            </script>
+            
+
+</body>
+
+</html>

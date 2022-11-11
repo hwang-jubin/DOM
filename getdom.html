@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="header">제목</h1>
+    <p id="content">안녕하세요 =</p>
+    <input type="text" id="alias" value="adam"/>
+    <!--form안에 있으면 submit가능-->
+    <button>버튼1</button>
+    <input type="button" value="버튼2" id="btn"/>
+    <script>
+       // document.getElementById("header").style.color="Red";
+        //document.getElementById("header").style.color="Red";
+       
+        let h1=document.getElementById("header");
+        
+       
+
+
+        h1.style.color="Red";
+        h1.style.border="2px Solid black";
+
+        document.getElementById("content").innerHTML= "텍스트 변경";//=은 내용 변경. tag와 tag사이 텍스트 변경은 innerHTML
+        document.getElementById("content").innerHTML+= "했다!";//뒤에 추가
+        alert(document.getElementById("alias").value);//tag가 안닫힌 경우는 vlaue
+
+
+        
+       /* document.getElementById("btn").onclick=funtion(){
+            alert("고전적 이벤트 처리 모델")
+        }*/
+
+        document.getElementById("btn").addEventListener("click",
+        ()=>{alert("표준이벤트 모델")});
+    </script>
+</body>
+</html>
